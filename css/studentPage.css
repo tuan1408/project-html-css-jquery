@@ -1,0 +1,35 @@
+@media only screen and (max-width: 992px) {
+  .tables-container tbody,
+  .tables-container tr,
+  .tables-container td {
+    display: block;
+  }
+  .tables-container thead tr {
+    position: absolute;
+    top: 200px;
+    left: -10000px;
+  }
+  .tables-container td {
+    position: relative;
+    padding-left: 35%;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+  .tables-container td::before {
+    content: attr(data-title);
+    position: absolute;
+    left: 6px;
+    font-weight: bold;
+  }
+  .tables-container tr {
+    border-bottom: 1px solid #ccc;
+  }
+}
+/* @media only screen and (min-width: 800px) and (max-width: 1200px) {
+  .tables-container td {
+    position: relative;
+    padding-left: 50%;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+} */

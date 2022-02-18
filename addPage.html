@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+    <link rel="stylesheet" href="./css/addPage.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1 class="title text-center">Them moi sinh vien</h1>
+
+        <div class="mt-3">
+            <h2 data-bs-toggle="collapse" role="button" aria-expanded="false" href="#toggleForm" aria-controls="toggleForm">Thong tin co ban</h2>
+
+            <div class="collapse show" id="toggleForm" >
+                <div class="card card-body">
+                    <div class="form-content">
+                        <form class="form-group" method="post" id="form-add" >
+                            <div class="input-group row">
+                                <div class="col-md-6">
+                                    <label for=""><b class="text-danger">*</b>Ma ho so</label>
+                                    <input class="form-control" type="text" name="maso" id="maso">
+                                    <span id="error-message-maso" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for=""><b class="text-danger">*</b>Ma sinh vien</label>
+                                    <input class="form-control" type="text" name="masinhvien" id="masinhvien">
+                                    <span id="error-message-masinhvien" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="input-group row mt-3">
+                                <div class="col-md-6">
+                                    <label for=""><b class="text-danger">*</b>Ho dem</label>
+                                    <input class="form-control" type="text" name="prename" id="prename">
+                                    <span id="error-message-prename" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for=""><b class="text-danger">*</b>Ten</label>
+                                    <input class="form-control" type="text" name="name" id="name">
+                                    <span id="error-message-name" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="input-group row mt-3">
+                                <div class="col-md-4 mt-2">
+                                    <label for=""><b class="text-danger required">*</b>Gioi tinh</label>
+                                    <select name="sex" id="sex" class="form-select">
+                                        <option value="">Chon gioi tinh</option>
+                                        <option value="1">Nam</option>
+                                        <option value="2">Nu</option>
+                                    </select>
+
+                                    <span id="error-message-sex" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-4 mt-2">
+                                    <label for=""><b class="text-danger">*</b>Ngay sinh</label>
+                                    <input class="form-control" type="date" name="date" id="date">
+                                    <span id="error-message-date" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-4 mt-2">
+                                    <label for=""><b class="text-danger">*</b>Noi sinh</label>
+                                    <input class="form-control" type="text" name="born" id="born">
+                                    <span id="error-message-born" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="input-group row mt-3">
+                                <div class="col-md-6">
+                                    <label for="">Dan toc</label>
+                                    <input class="form-control" type="text" name="ethnic" id="ethnic">
+                                    <span id="error-message" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="">Ton giao</label>
+                                    <input class="form-control" type="text" name="religion" id="religion">
+                                    <span id="error-message" class="text-danger"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="input-group row mt-3">
+                                <div class="col-md-4 mt-2">
+                                    <label for="">CCCD</label>
+                                    <input class="form-control" type="text" name="indenty" id="indenty">
+                                    <span id="error-message" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-4 mt-2">
+                                    <label for="">Ngay cap</label>
+                                    <input class="form-control" type="date" name="dateRange" id="dateRange">
+                                    <span id="error-message" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-4 mt-2">
+                                    <label for="">Noi cap</label>
+                                    <input class="form-control" type="text" name="place" id="place">
+                                    <span id="error-message" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="input-group row mt-3">
+                                <div class="col-md-6">
+                                    <label for="">Dien thoai</label>
+                                    <input class="form-control" type="text" name="phone" id="phone">
+                                    <span id="error-message" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for=""><b class="text-danger">*</b> Email</label>
+                                    <input class="form-control" type="email" name="email" id="email">
+                                    <span id="error-message-email" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="input-group row mt-3">
+                                <div class="col-md-6">
+                                    <label for="">Dia chi lien he</label>
+                                    <input class="form-control" type="text" name="address" id="address">
+                                    <span id="error-message" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="input-group row mt-3">
+                                <div class="col-md-6 mt-2">
+                                    <label for="">Ghi chu</label>
+                                    <input class="form-control" type="text" name="note" id="note">
+                                    <span id="error-message" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6 mt-2">
+                                    <label for=""><b class="text-danger">*</b>Trang thai sinh vien</label>
+                                    <select name="status" id="status" class="form-select required">
+                                        <option value="">chon trang thai</option>
+                                        <option value="1">Da tot nghiep</option>
+                                        <option value="2">Chua tot nghiep</option>
+                                    </select>
+                                    <span id="error-message-status" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="mt-5 mb-3">
+                                <button id="button-submit" class="btn btn-primary">Them moi</button>
+                                <button id="button-cancle" class="btn btn-danger">Them moi</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script  src="./js/addPage.js"></script>
+</body>
+</html>
