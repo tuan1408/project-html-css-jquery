@@ -1,4 +1,12 @@
+import { inputClearMessage, inputRequiredCheck } from "./validate.js";
+
 $(document).ready(function () {
+  const arr = ["name", "password"];
+
+  arr.map((item) => {
+    return inputClearMessage(inputRequiredCheck, item);
+  });
+
   $("#form-login").submit(function (e) {
     e.preventDefault();
     const name = $.trim($("#name").val());
@@ -6,7 +14,7 @@ $(document).ready(function () {
 
     let flag = true;
 
-    if (name == "" || name.length < 4) {
+    if (name == "") {
       $("#error__message-name").text("Vui long nhap truong nay");
       flag = false;
     } else {

@@ -1,151 +1,131 @@
-const inputClearMessage = (callback, id) => {
-  $(`#${id}`).on("input", function () {
-    const inputValue = $(`#${id}`).val();
+import {
+  inputClearMessage,
+  inputRequiredCheck,
+  checkEmail,
+  checkValuesRequired,
+  getValue,
+} from "./validate.js";
 
-    if (callback(inputValue)) {
-      $(`#error-message-${id}`).text("");
-      return false;
-    }
-    return true;
-  });
-};
-const inputRequiredCheck = (string) => {
-  if (string.length > 0) {
-    return true;
-  }
-  return false;
-};
-
+// docoment is ready
 $(document).ready(function () {
-  inputClearMessage(inputRequiredCheck, "maso");
-  inputClearMessage(inputRequiredCheck, "masinhvien");
-  inputClearMessage(inputRequiredCheck, "prename");
-  inputClearMessage(inputRequiredCheck, "name");
-  inputClearMessage(inputRequiredCheck, "born");
-  inputClearMessage(inputRequiredCheck, "status");
-  inputClearMessage(inputRequiredCheck, "email");
+  const arr = [
+    "maso",
+    "masinhvien",
+    "prename",
+    "name",
+    "born",
+    "status",
+    "email",
+    "sex",
+    "date",
+  ];
 
-  inputClearMessage(inputRequiredCheck, "sex");
-  inputClearMessage(inputRequiredCheck, "date");
+  arr.map((item) => {
+    return inputClearMessage(inputRequiredCheck, item);
+  });
 
+  const listItems = [
+    { name: "dateRange", isRequired: false },
+    { name: "phone", isRequired: false },
+    { name: "place", isRequired: false },
+    { name: "address", isRequired: false },
+    { name: "masinhvien", isRequired: true },
+    { name: "prename", isRequired: true },
+    { name: "maso", isRequired: true },
+    { name: "name", isRequired: true },
+    { name: "email", isRequired: true },
+    { name: "sex", isRequired: true },
+    { name: "status", isRequired: true },
+    { name: "indenty", isRequired: false },
+    { name: "religon", isRequired: false },
+    { name: "born", isRequired: true },
+    { name: "ethnic", isRequired: false },
+    { name: "note", isRequired: false },
+    { name: "date", isRequired: true },
+  ];
+
+  // // get value
+  // const getValue = (listItems) => {
+  //   const newValue = listItems.map((item) => {
+  //     return {
+  //       name: item.name,
+  //       value: $.trim($("#" + item.name).val()),
+  //       isRequired: item.isRequired,
+  //     };
+  //   });
+  //   return newValue;
+  // };
+
+  let emailItem = {
+    name: "email",
+    value: $.trim($("#email").val()),
+    message: "email",
+  };
+  // // check format
+  // const checkEmailFormat = () => {
+  //   const regex = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
+  //   if (regex.test(emailItem.value)) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // };
+  // // check email
+  // const checkEmail = (emailItem) => {
+  //   if (checkEmailFormat) {
+  //     $("#error-message-" + emailItem.name).text("Vui long nhap email");
+  //     return false;
+  //   } else {
+  //     $("#error-message-" + emailItem.name).text("");
+  //     return true;
+  //   }
+  // };
+
+  // // check value
+  // const checkValuesRequired = (item) => {
+  //   if (item.value == "" && item.isRequired === true) {
+  //     $("#error-message-" + item.name).text("Vui long nhap truong nay");
+  //     return false;
+  //   } else {
+  //     $("#error-message-" + item.name).text("");
+  //     return true;
+  //   }
+  // };
+
+  // validate form
+  const validateForm = () => {
+    checkEmail(emailItem);
+
+    getValue(listItems).map((item, index) => {
+      if (item.isRequired) {
+        checkValuesRequired(item);
+      } else {
+        return true;
+      }
+    });
+  };
+
+  // handle submit button
   $("#button-submit").click(function (e) {
     e.preventDefault();
-    // const maso = $.trim($("#maso").val());
-    // const masinhvien = $.trim($("#masinhvien").val());
-    // const prename = $.trim($("#prename").val());
-    // const name = $.trim($("#name").val());
-    // const sex = $.trim($("#sex").val());
-    // const date = $.trim($("#date").val());
-    // const born = $.trim($("#born").val());
-    // const email = $.trim($("#email").val());
-    // const status = $.trim($("#status").val());
-    // const ethnic = $.trim($("#ethnic").val());
-    // const religion = $.trim($("#religion").val());
-    // const indenty = $.trim($("#indenty").val());
-    // const dateRange = $.trim($("#dateRange").val());
-    // const phone = $.trim($("#phone").val());
-    // const note = $.trim($("#note").val());
-    // const place = $.trim($("#place").val());
-    // const address = $.trim($("#address").val());
 
-    const listItems = [
-      "dateRange",
-      "phone",
-      "note",
-      "place",
-      "address",
-      "maso",
-      "masinhvien",
-      "prename",
-      "name",
-      "sex",
-      "date",
-      "born",
-      "email",
-      "status",
-      "ethnic",
-      "religon",
-      "indenty",
-    ];
-
-    const getValue = (listId) => {
-      const newValue = listId.map((id) => {
-        return {
-          name: id,
-          value: $.trim($("#" + id).val()),
-        };
-      });
-      console.log(newValue);
-    };
     getValue(listItems);
-
-    let flag = true;
-
-    const validateForm = () => {
-      let requiredItem = [
-        { name: "maso", value: maso, message: "ma so" },
-        { name: "name", value: name, message: "ten" },
-        { name: "masinhvien", value: masinhvien, message: "ma sinh vien" },
-        { name: "prename", value: prename, message: "ho dem" },
-        { name: "born", value: born, message: "noi sinh" },
-        { name: "sex", value: sex, message: "gioi tinh" },
-        { name: "date", value: date, message: "ngay sinh" },
-        { name: "status", value: status, message: "trang thai" },
-      ];
-      let emailItem = { name: "email", value: email, message: "email" };
-
-      const checkEmail = (emailItem) => {
-        const regex =
-          /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
-        if (!regex.test(emailItem.value) || emailItem.value == "") {
-          $("#error-message-" + emailItem.name).text("Vui long nhap email");
-          flag = false;
-        } else {
-          $("#error-message-" + emailItem.name).text("");
-          flag = true;
-        }
-      };
-      checkEmail(emailItem);
-
-      const checkValuesRequired = (item) => {
-        if (item.value == "") {
-          $("#error-message-" + item.name).text("Vui long nhap truong nay");
-          flag = false;
-        } else {
-          $("#error-message-" + item.name).text("");
-          flag = true;
-        }
-      };
-      requiredItem.map((item, index) => {
-        checkValuesRequired(item);
-      });
-    };
     validateForm();
+    console.log(
+      getValue(listItems).map((item) => {
+        return {
+          name: item.name,
+          value: item.value,
+        };
+      })
+    );
 
-    if (flag) {
-      console.log({
-        maso,
-        masinhvien,
-        prename,
-        name,
-        sex,
-        date,
-        born,
-        ethnic,
-        religion,
-        dateRange,
-        indenty,
-        date,
-        place,
-        phone,
-        email,
-        address,
-        note,
-        status,
-      });
+    if (Boolean(validateForm())) {
+      window.location.assign("./studentPage.html");
     }
   });
 
+  // handle cancle button
   $("#button-cancle").click(function (e) {
     e.preventDefault();
     console.log("cancle");
