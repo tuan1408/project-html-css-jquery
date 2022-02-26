@@ -3,3 +3,7 @@
     overflow-x: auto;
   }
 }
+
+.page-link {
+  cursor: pointer;
+}

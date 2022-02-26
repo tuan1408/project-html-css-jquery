@@ -29,7 +29,7 @@ const checkEmailFormat = () => {
 };
 // check email
 export const checkEmail = (emailItem) => {
-  if (checkEmailFormat) {
+  if (!checkEmailFormat) {
     $("#error-message-" + emailItem.name).text("Vui long nhap email");
     return false;
   } else {
@@ -40,7 +40,7 @@ export const checkEmail = (emailItem) => {
 
 // check value
 export const checkValuesRequired = (item) => {
-  if (item.value == "" && item.isRequired === true) {
+  if (item.value == "" && item.isRequired) {
     $("#error-message-" + item.name).text("Vui long nhap truong nay");
     return false;
   } else {

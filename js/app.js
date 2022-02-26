@@ -15,17 +15,17 @@ $(document).ready(function () {
     let flag = true;
 
     if (name == "") {
-      $("#error__message-name").text("Vui long nhap truong nay");
+      $("#error-message-name").text("Vui long nhap truong nay");
       flag = false;
     } else {
-      $("#error__message-name").text("");
+      $("#error-message-name").text("");
     }
 
     if (password.length <= 0) {
-      $("#error__message-password").text("Ban phai nhap mat khau");
+      $("#error-message-password").text("Ban phai nhap mat khau");
       flag = false;
     } else {
-      $("#error__message-password").text("");
+      $("#error-message-password").text("");
     }
 
     if (flag) {
