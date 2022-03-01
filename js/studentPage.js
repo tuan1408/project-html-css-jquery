@@ -34,7 +34,7 @@ $(document).ready(function () {
         }); //  was fade out to fade it in
         if (totalRows > maxRows) {
           // if tr total rows gt max rows option
-          var pagenum = Math.ceil(totalRows / maxRows); // ceil total(rows/maxrows) to get ..
+          var pagenum = Math.ceil(totalRows / maxRows);
           //	numbers of pages
           for (var i = 1; i <= pagenum; ) {
             // for each page append pagination li
@@ -79,7 +79,6 @@ $(document).ready(function () {
           $(table + " tr:gt(0)").each(function () {
             // each tr in table not the header
             trIndex++; // tr index counter
-            // if tr index gt maxRows*pageNum or lt maxRows*pageNum-maxRows fade if out
             if (
               trIndex > maxRows * pageNum ||
               trIndex <= maxRows * pageNum - maxRows

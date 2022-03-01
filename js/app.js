@@ -1,4 +1,4 @@
-import { inputClearMessage, inputRequiredCheck } from "./validate.js";
+// import { inputClearMessage, inputRequiredCheck } from "../js/validate";
 
 $(document).ready(function () {
   const arr = ["name", "password"];

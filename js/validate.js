@@ -1,5 +1,5 @@
 // handle message error
-export const inputClearMessage = (callback, id) => {
+const inputClearMessage = (callback, id) => {
   $(`#${id}`).on("input", function () {
     const inputValue = $(`#${id}`).val();
 
@@ -11,7 +11,7 @@ export const inputClearMessage = (callback, id) => {
   });
 };
 // callback
-export const inputRequiredCheck = (string) => {
+const inputRequiredCheck = (string) => {
   if (string.length > 0) {
     return true;
   }
@@ -28,7 +28,7 @@ const checkEmailFormat = () => {
   }
 };
 // check email
-export const checkEmail = (emailItem) => {
+const checkEmail = (emailItem) => {
   if (!checkEmailFormat) {
     $("#error-message-" + emailItem.name).text("Vui long nhap email");
     return false;
@@ -39,7 +39,7 @@ export const checkEmail = (emailItem) => {
 };
 
 // check value
-export const checkValuesRequired = (item) => {
+const checkValuesRequired = (item) => {
   if (item.value == "" && item.isRequired) {
     $("#error-message-" + item.name).text("Vui long nhap truong nay");
     return false;
@@ -49,7 +49,7 @@ export const checkValuesRequired = (item) => {
   }
 };
 // get value
-export const getValue = (listItems) => {
+const getValue = (listItems) => {
   const newValue = listItems.map((item) => {
     return {
       name: item.name,

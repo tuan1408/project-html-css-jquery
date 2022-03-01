@@ -1,10 +1,10 @@
-import {
-  inputClearMessage,
-  inputRequiredCheck,
-  checkEmail,
-  checkValuesRequired,
-  getValue,
-} from "./validate.js";
+// import {
+//   inputClearMessage,
+//   inputRequiredCheck,
+//   checkEmail,
+//   checkValuesRequired,
+//   getValue,
+// } from "validate.js";
 
 // docoment is ready
 $(document).ready(function () {
